@@ -13,12 +13,12 @@
 
 void* operator new[](size_t Size, const char* /*Name*/, int /*Flags*/, unsigned /*DebugFlags*/, const char* /*File*/, int /*Line*/)
 {
-    return malloc(Size);
+	return malloc(Size);
 }
 
 void* operator new[](size_t Size, size_t Alignment, size_t AlignmentOffset, const char* /*Name*/, int /*Flags*/, unsigned /*DebugFlags*/, const char* /*File*/, int /*Line*/)
 {
-    return _aligned_offset_malloc(Size, Alignment, AlignmentOffset);
+	return _aligned_offset_malloc(Size, Alignment, AlignmentOffset);
 }
 
 int CALLBACK WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
@@ -27,7 +27,7 @@ int CALLBACK WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 	if (!GDx12.Initialize(GApp.Window))
 	{
-		// TODO: Add MessageBox
+		// #TODO: Add MessageBox
 		return 1;
 	}
 
@@ -39,27 +39,27 @@ int CALLBACK WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		return 2;
 	}
 
-    MSG Message = {};
-    for (;;)
-    {
-        if (PeekMessage(&Message, 0, 0, 0, PM_REMOVE))
-        {
-            TranslateMessage(&Message);
-            DispatchMessage(&Message);
+	MSG Message = {};
+	for (;;)
+	{
+		if (PeekMessage(&Message, 0, 0, 0, PM_REMOVE))
+		{
+			TranslateMessage(&Message);
+			DispatchMessage(&Message);
 			if (Message.message == WM_QUIT)
 			{
 				break;
 			}
-        }
-        else
-        {
+		}
+		else
+		{
 			GApp.Update();
 			Ex.Update();
 			GDx12.Present();
-        }
-    }
+		}
+	}
 
 	Ex.Shutdown();
 	GDx12.Shutdown();
-    return 0;
+	return 0;
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #define VHR(hr) if (FAILED(hr)) { assert(0); }
+#define SAFE_RELEASE(obj) if ((obj)) { (obj)->Release(); (obj) = nullptr; }
 #define DX12_ENABLE_DEBUG_LAYER 0
 
 class FDirectX12

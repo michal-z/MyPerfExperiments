@@ -13,10 +13,9 @@ static HANDLE GShaderChanged;
 
 static void CreatePso()
 {
-	if (GPso)
-	{
-		GPso->Release();
-	}
+	SAFE_RELEASE(GPso);
+	SAFE_RELEASE(GRs);
+
 	eastl::vector<uint8_t> CsoVS = LoadFile("Assets/Shaders/Experiment0/TriangleVS.cso");
 	eastl::vector<uint8_t> CsoPS = LoadFile("Assets/Shaders/Experiment0/SolidPS.cso");
 

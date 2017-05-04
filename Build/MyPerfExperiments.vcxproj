@@ -81,7 +81,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{35CB1ABC-4FDE-4F4E-B423-B2286C11041B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>PerfExperiments</RootNamespace>
+    <RootNamespace>MyPerfExperiments</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
